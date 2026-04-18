@@ -61,7 +61,7 @@ model = train_model()
 #การออกแบบส่วนแสดงผล (User Interface) ที่จะใช้บน Streamlit
 st.set_page_config(page_title='Customer Churn Prediction', layout='wide', page_icon=":bar_chart:")
 
-st.title(":bar_chart: Customer Churn Prediction")
+st.title(":bar_chart: Customer Churn Prediction by 6802115086")
 st.markdown("แอปพลิเคชั่นสำหรับทีมการตลาดเพื่อ **ประเมินความเสี่ยง** และ **จัดแคมเปญรักษาลูกค้า** เชิงรุก**")
 st.divider()
 
@@ -70,7 +70,7 @@ st.sidebar.header("📝กรอกข้อมูลนำเข้า")
 
 age = st.sidebar.slider("อายุ (ปี)", 18, 70, 35)
 tenure = st.sidebar.slider("จำนวนเดือนที่ใช้บริการ", 1, 72, 6)
-charge = st.sidebar.number_input("ค่าใช้จ่ายต่อเดือน (บาท)",500.0, 3000.0, 1500.0)
+charge = st.sidebar.number_input("ค่าใช้จ่ายต่อเดือน (บาท)",510.0, 3010.0, 1510.0)
 tickets = st.sidebar.select_slider("จำนวนตั๋วที่ติดต่อฝ่าย Support Ticket)", options=[0, 1, 2, 3, 4, 5])
 
 #ทำนายผล
