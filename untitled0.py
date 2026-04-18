@@ -47,8 +47,8 @@ def train_model():
   else:
     df = pd.read_csv('customer_churn_mock.csv')
 
-  # Drop 'Churn' and 'CustomerID' from features for training
-  x = df.drop(['Churn', 'CustomerID'], axis=1)
+  
+  x = df[['Age', 'Tenure_Months', 'Monthly_Charge', 'Support_Tickets']]
   y = df['Churn']
 
   model = RandomForestClassifier(n_estimators=100, random_state=42)
@@ -65,9 +65,8 @@ st.title(":bar_chart: Customer Churn Prediction")
 st.markdown("แอปพลิเคชั่นสำหรับทีมการตลาดเพื่อ **ประเมินความเสี่ยง** และ **จัดแคมเปญรักษาลูกค้า** เชิงรุก**")
 st.divider()
 
-#การออกแบบส่วนแสดงผลแถบด้านข้าง (sidebar) ที่จะใช้บน  Streamlit "สำหรับกรอกข้อมูลนำเข้า"
-st.sidebar.header('📝
- กรอกข้อมูลนำเข้า')
+#การออกแบบส่วนแสดงผลแถบด้านข้าง (sidebar) ที่จะใช้บน  Streamlit สำหรับกรอกข้อมูลนำเข้า
+st.sidebar.header("📝กรอกข้อมูลนำเข้า")
 
 age = st.sidebar.slider("อายุ (ปี)", 18, 70, 35)
 tenure = st.sidebar.slider("จำนวนเดือนที่ใช้บริการ", 1, 72, 6)
@@ -81,6 +80,8 @@ input_data = pd.DataFrame({
     'Monthly_Charge': [charge],
     'Support_Tickets': [tickets]
 })
+
+
 prediction = model.predict(input_data)[0]
 probability = model.predict_proba(input_data)[0][1]
 
